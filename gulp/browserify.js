@@ -13,7 +13,7 @@ var gulpif = require('gulp-if');
 module.exports = function(gulp, plugins, args, config, taskTarget, browserSync) {
   var dirs = config.directories;
   var entries = config.entries;
-
+  
   var browserifyTask = function(files) {
     return files.map(function(entry) {
       var dest = path.resolve(taskTarget);

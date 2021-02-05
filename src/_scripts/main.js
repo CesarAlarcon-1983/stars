@@ -10,7 +10,6 @@ var Header = require('../_modules/header/header');
 var Slider = require('../_modules/slider/slider');
 
 $(function() {
-
     new Header();
     new Slider();
 });

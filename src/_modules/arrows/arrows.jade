@@ -1,0 +1,17 @@
+mixin arrows(mode)
+    if mode == 'left'
+        .arrows
+            span.arrows__left.-js-arrow-left
+                img(src="/images/chevron-left.svg")
+
+    if mode == 'right'
+        .arrows
+            span.arrows__right.-js-arrow-right
+                img(src="/images/chevron-right.svg")
+
+    if mode == 'both'
+        .arrows(class=mode)
+            span.arrows__right.-js-arrow-right
+                img(src="/images/chevron-right.svg")
+            span.arrows__left.-js-arrow-left
+                img(src="/images/chevron-left.svg")

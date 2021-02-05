@@ -39,6 +39,59 @@ ul {
     margin: 0;
 }
 
+#fp-nav {
+  left: 15px !important;
+
+  @include mq(md) {
+    left: 30px !important;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      margin: 10px 0 !important;
+
+      @include mq(md) {
+        margin: 20px 0 !important;
+      }
+
+      a {
+          span {
+          height: 7px !important;
+          width: 7px !important;
+          background: $white - #333 !important;
+          transform: translate3d(-50%, -50%, 0);
+          margin: 0 !important;
+
+          @include mq(md) {
+            height: 10px !important;
+            width: 10px !important;
+            background: $white - #333 !important;
+            transform: translate3d(-50%, -50%, 0);
+            margin: 0 !important;
+          }
+        }
+      }
+    }
+  }
+
+  ul {
+    li {
+      a {
+        &.active {
+          span {
+            background: $blue !important;
+            height: 16px !important;
+            width: 16px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
 // Styling on warning for users on IE7 or below
 .browsehappy {
   text-align: center;

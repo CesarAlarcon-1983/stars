@@ -1,4 +1,135 @@
+include ./_modules/slider/slider
+include ./_modules/arrows/arrows
+
 extends _layouts/base
 
 block content
-    main.home
+	main.home
+		#fullpage
+			.section
+				.home__section-1
+					.home__section-1__logo
+						img(src="/images/logo.png")
+			.section
+				.home__section-2
+					.home__section-2__text Proyectamos nuestro espíritu de emprendimiento para ser un agente de cambio positivo en Chile y el mundo con una mirada consciente, sincera y global.
+			.section
+				.home__section-3
+					+slider('.home__section-3__slider')
+						.home__section-3__slide.home__section-3__slide--first
+							h2.home__section-3__title Área de <strong>negocio</strong>
+							.home__section-3__arrows-container.home__section-3__arrows-container--single
+								+arrows('right')
+						.home__section-3__slide.home__section-3__slide--second
+							.home__section-3__container
+								.home__section-3__wrapper
+									h3.home__section-3__wrapper-title
+										|Activos
+										br
+										span Financieros
+									p.home__section-3__wrapper-text Nuestro portafolio, construido internamente, complementa áreas de renta fija, acciones, derivados y otras estructuras, con una mirada disciplinada, global y de largo plazo.
+								ul.home__section-3__list
+									li.home__section-3__item Foco de largo plazo.
+									li.home__section-3__item Diversificación estratégica y greográfica.
+									li.home__section-3__item Enfoque Diciplinado.
+									li.home__section-3__item Método Top-Down.
+							.home__section-3__arrows-container
+								+arrows('both')
+						.home__section-3__slide.home__section-3__slide--third
+							.home__section-3__container
+								.home__section-3__wrapper
+									h3.home__section-3__wrapper-title
+										|Activos
+										br
+										span Corporativos
+									p.home__section-3__wrapper-text Generamos valor a través de ideas y actividades empresariales que impactan positivamente en el mercado y el desarrollo de Chile.
+								ul.home__section-3__list
+									li.home__section-3__item Inversión directa en compañías líderes del país.
+									li.home__section-3__item Activo soporte a equipos ejecutivos.
+									li.home__section-3__item Foco transversal a distintas industrias.
+									li.home__section-3__item Portafolio de private equity como complemento estratégico.
+							.home__section-3__arrows-container
+								+arrows('both')
+						.home__section-3__slide.home__section-3__slide--fourth
+							.home__section-3__container.home__section-3__container--align-items-end
+								.home__section-3__wrapper
+									h3.home__section-3__wrapper-title
+										|Activos
+										br
+										span Inmobiliarios
+									p.home__section-3__wrapper-text STARS REI es una compañía global, con un portafolio comercial focalizado en core y value add, en Estados Unidos e Inglaterra.
+								.home__section-3__logo-wrapper
+									img(src="/images/logo-stars-rei.png")
+									a(href="www.starsrei.com" target="_blank") www.starsrei.com
+							.home__section-3__arrows-container
+								+arrows('both')
+						.home__section-3__slide.home__section-3__slide--fifth
+							.home__section-3__container.home__section-3__container--align-items-end
+								.home__section-3__wrapper.home__section-3__wrapper--big
+									h3.home__section-3__wrapper-title
+										span Venture Capital
+										br
+										| &amp; Impact Investing
+									p.home__section-3__wrapper-text.home__section-3__wrapper-text--small A través de una compañía independiente, KAYYAK Ventures, promovemos el emprendimiento como catalizador del desarrollo de nuevas tecnologías y modelos de negocio sustentables.
+								.home__section-3__logo-wrapper
+									img(src="/images/logo-kayyak.png")
+									a(href="www.kayyakventures.com" target="_blank") www.kayyakventures.com
+							.home__section-3__arrows-container
+								+arrows('both')
+			.section
+				.home__section-4
+					.home__section-4__container
+						.home__section-4__container-logo
+							img(src="/images/logo-ripple.png")
+						.home__section-4__group
+							.home__section-4__text-group
+								p.home__section-4__text(data-content="1") “Marcada ética de trabajo y emprendimiento”
+								p.home__section-4__text(data-content="2") “Lorem ipsum dolor sit amet, consectetur adipiscing elit”
+								p.home__section-4__text(data-content="3") “Ut enim ad minim veniam, quis nostrud exercitation ullamco”
+								p.home__section-4__text(data-content="4") “Duis aute irure dolor in reprehenderit in voluptate velit”
+								p.home__section-4__text(data-content="5") “Excepteur sint occaecat cupidatat non proident, sunt in culpa”
+							ul.home__section-4__group-list
+								li.home__section-4__group-item(data-target="1")
+									|01
+									br
+									span Historia
+								li.home__section-4__group-item(data-target="2")
+									|02
+									br
+									span Mesa Redonda
+								li.home__section-4__group-item(data-target="3")
+									|03
+									br
+									span Naturaleza
+								li.home__section-4__group-item(data-target="4")
+									|04
+									br
+									span Impacto
+								li.home__section-4__group-item(data-target="5")
+									|05
+									br
+									span 5 Generaciones
+
+			.section
+				.home__section-5
+					.home__section-5__container
+						.home__section-5__wrapper
+							.home__section-5__logo
+								img(src="/images/logo.png")
+						.home__section-5__wrapper
+							.home__section-5__group
+								p.home__section-5__group-title Chile
+								p.home__section-5__group-text Av. Presidente Riesco 5561. Of. 1101
+								p.home__section-5__group-text Las Condes, Santiago de Chile
+								a.home__section-5__group-phone(href="tel:+56229644935" target="_blank") +56 22.964.4935
+								a.home__section-5__group-mail(href="mailto:contact@starsrei.com" target="_blank") contact@starsrei.com
+
+						.home__section-5__wrapper
+							.home__section-5__group
+								p.home__section-5__group-title USA
+								p.home__section-5__group-text 700 Canal Street, 1st Floor
+								p.home__section-5__group-text Stamford, CT 06902
+								a.home__section-5__group-phone(href="tel:+19142335269" target="_blank") +1 (914) 233.5269
+								a.home__section-5__group-mail(href="mailto:contact@starsrei.com" target="_blank") contact@starsrei.com
+
+
