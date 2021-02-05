@@ -1,8 +1,40 @@
 .header {
 
     $h: &;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    padding: 15px;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
 
+    @include mq(md) {
+        padding: 20px 5vw;
+    }
+
+    &__lang {
+        display: flex;
+
+        span {
+            color: $white;
+            display: block;
+
+            &:first-child() {
+                padding-right: 5px;
+                margin-right: 5px;
+                border-right: 1px solid $white;
+            }
+
+            &.-active {
+                font-weight: 500;
+            }
+        }
+    }
     &__hamburguer {
+        display: none;
         cursor: pointer;
         width: 25px;
         height: 25px;
