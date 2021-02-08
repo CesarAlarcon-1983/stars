@@ -33,6 +33,7 @@
       background: url('/images/slide-5.png') no-repeat center center / cover;
     }
   }
+
   &__section-1,
   &__section-2,
   &__section-3,
@@ -157,7 +158,7 @@
     &__arrows-container {
       position: absolute;
       left: 50%;
-      bottom: 20px;
+      bottom: 60px;
       transform: translate3d(-50%, 0, 0);
 
       @include mq(md) {
@@ -185,11 +186,12 @@
     }
 
     &__container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate3d(-50%, -50%, 0);
-      width: 70%;
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // transform: translate3d(-50%, -50%, 0);
+      // width: 70%;
+      padding: 70px 60px 0 60px;
       
       @include mq(md) {
         display: flex;
@@ -316,16 +318,17 @@
 
   &__section-4 {
     &__container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate3d(-50%, -50%, 0);
-      width: 80%;
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // transform: translate3d(-50%, -50%, 0);
+      // width: 80%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-     
+      padding: 50px 60px 0 60px;
+
       @include mq(md) {
         flex-direction: row;
         justify-content: flex-end;
@@ -335,7 +338,7 @@
     }
 
     &__container-logo {
-      width: 80%;
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
 
@@ -380,14 +383,14 @@
       @include trans;
 
       color: $white;
-      font-size: 28px;
+      font-size: 26px;
       opacity: 0;
       position: absolute;
-      top: 50%;
+      top: 0;
       left: 50%;
-      transform: translate3d(-50%, -50%, 0);
+      transform: translate3d(-50%, 0, 0);
       text-align: center;
-      width: 150%;
+      width: 180%;
       margin: 0;
 
       @include mq(md) {
@@ -421,9 +424,10 @@
     &__group-item {
       @include trans;
       color: $white;
+      cursor: pointer;
 
       &:not(:last-child) {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
       }
 
       @include mq(md) {
@@ -433,7 +437,7 @@
       }
 
       span {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 500;
         text-transform: uppercase;
 

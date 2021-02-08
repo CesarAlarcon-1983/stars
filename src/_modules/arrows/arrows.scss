@@ -13,8 +13,8 @@
 
   &__right,
   &__left {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border: 1px solid $white;
     border-radius: 50%;
     position: relative;
@@ -39,14 +39,16 @@
 
     #{$a}__right,
     #{$a}__left {
-      width: 60px;
-      height: 60px;
+      width: 40px;
+      height: 40px;
       border: 1px solid $white;
       border-radius: 50%;
       position: relative;
       
       @include mq(md) {
         margin: 10px 0;
+        width: 60px;
+        height: 60px;
       }
 
       img {

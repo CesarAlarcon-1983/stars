@@ -10,7 +10,7 @@ var Slider = function() {
                 fade: false,
                 arrows:  false,
                 autoplay: false,
-                infinite: false
+                infinite: true
             });
         });
     }
