@@ -156,17 +156,17 @@
     }
 
     &__arrows-container {
-      position: absolute;
-      left: 50%;
-      bottom: 60px;
-      transform: translate3d(-50%, 0, 0);
-
+      // left: 50%;
+      // bottom: 0;
+      // transform: translate3d(-50%, 0, 0);
+      
       @include mq(md) {
-        right: 30px;
+        right: 0;
         top: 50%;
         left: auto;
         bottom: auto;
         transform: translate3d(0, -50%, 0);
+        position: absolute;
       }
 
       &--single {
@@ -174,29 +174,39 @@
         bottom: auto;
         top: 50%;
         transform: translate3d(0, -50%, 0);
+        position: absolute;
+
+        .arrows {
+          width: auto;
+        }
   
         @include mq(md) {
           right: 30px;
-          top: 50%;
-          left: auto;
-          bottom: auto;
-          transform: translate3d(0, -50%, 0);
         }
       }
     }
 
     &__container {
-      // position: absolute;
-      // top: 50%;
-      // left: 50%;
-      // transform: translate3d(-50%, -50%, 0);
-      // width: 70%;
-      padding: 70px 60px 0 60px;
-      
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: 70%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
       @include mq(md) {
-        display: flex;
+        justify-content: flex-start;
         align-items: center;
-        width: auto;
+        flex-direction: row;
+        width: 80%;
+        height: auto;
+        left: auto;
+        right: 50px;
+        transform: translate3d(0, -50%, 0);
       }
 
       &--align-items-end {
@@ -215,7 +225,7 @@
       &--big {
         @include mq(md) {
           width: 600px;
-          margin-right: 100px;
+          margin-right: 0;
         }
       }
     }
@@ -249,16 +259,21 @@
       }
 
       &--small {
-        width: 75%;
+        @include mq(md) {
+          width: 75%;
+        }
       }
     }
 
     &__list {
-      width: 300px;
+      // width: 300px;
+      @include mq(md) {
+        padding-right: 100px;
+      }
     }
 
     &__item {
-      font-size: 18px;
+      font-size: 16px;
       margin-bottom: 20px;
       color: $white;
 
@@ -318,16 +333,16 @@
 
   &__section-4 {
     &__container {
-      // position: absolute;
-      // top: 50%;
-      // left: 50%;
-      // transform: translate3d(-50%, -50%, 0);
-      // width: 80%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: 80%;
+      height: 80%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 50px 60px 0 60px;
 
       @include mq(md) {
         flex-direction: row;
