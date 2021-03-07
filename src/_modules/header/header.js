@@ -8,6 +8,13 @@ var Header = function() {
     var menuClose = $('.header__nav__close');
     var arrowLeft = $('.-js-arrow-left')
     var arrowRight = $('.-js-arrow-right')
+    var languages = $('.header__lang a');
+
+    if(window.location.pathname.length > 1) {
+        $(languages[1]).addClass('-active');
+    } else {
+        $(languages[0]).addClass('-active');
+    }
 
     menuOpen.on('click', function(){
         header.addClass('-open');

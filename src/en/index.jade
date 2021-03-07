@@ -1,0 +1,139 @@
+include ../_modules/slider/slider
+include ../_modules/arrows/arrows
+
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../';
+
+block content
+  main.home
+    #fullpage
+      .section
+        .home__section-1
+          .home__section-1__logo
+            img(src="/images/logo.png")
+      .section
+        .home__section-2
+          .home__section-2__text “To extend our entrepreneurial spirit, as a way to be a positive agent of change in Chile and the world, with a conscious and earnest global mindset.”
+      .section
+        .home__section-3
+          +slider('.home__section-3__slider')
+            .home__section-3__slide.home__section-3__slide--first
+              h2.home__section-3__title <strong>Business</strong> areas
+              .home__section-3__arrows-container.home__section-3__arrows-container--single
+                +arrows('right')
+            .home__section-3__slide.home__section-3__slide--second
+              .home__section-3__container
+                .home__section-3__wrapper
+                  h3.home__section-3__wrapper-title
+                    span Financial
+                    br
+                    |Assets
+                  p.home__section-3__wrapper-text Our in-house constructed portfolio, covers different areas of fixed income, equity, derivaties and other types of structures, with a disciplined, structured and long term investment philosophy.
+                ul.home__section-3__list
+                  li.home__section-3__item Long-term focus.
+                  li.home__section-3__item Strategic and geographic diversification.
+                  li.home__section-3__item Disciplined approach.
+                  li.home__section-3__item Top Down method.
+                .home__section-3__arrows-container
+                  +arrows('both')
+            .home__section-3__slide.home__section-3__slide--third
+              .home__section-3__container
+                .home__section-3__wrapper
+                  h3.home__section-3__wrapper-title
+                    span CORPORATE
+                    br
+                    |ASSETS
+                  p.home__section-3__wrapper-text We seek to create value through business ideas and activities that have a positive impact in the market and Chile´s development.
+                ul.home__section-3__list
+                  li.home__section-3__item Direct investments in leading Chilean companies
+                  li.home__section-3__item Active management support in controlled assets
+                  li.home__section-3__item Cross-Industry focus.
+                  li.home__section-3__item Private Equity as an strategic complement.
+                .home__section-3__arrows-container
+                  +arrows('both')
+            .home__section-3__slide.home__section-3__slide--fourth
+              .home__section-3__container.home__section-3__container--align-items-end
+                .home__section-3__wrapper.home__section-3__wrapper--big
+                  h3.home__section-3__wrapper-title
+                    span Real
+                    br
+                    |State
+                  p.home__section-3__wrapper-text.home__section-3__wrapper-text--small STARS REI is a global, privately held company with real estate holdings in the US and the UK. Commercial portfolio focused on core and value-add development.
+                .home__section-3__logo-wrapper
+                  img(src="/images/logo-stars-rei.png")
+                  a(href="www.starsrei.com" target="_blank") www.starsrei.com
+                .home__section-3__arrows-container
+                  +arrows('both')
+            .home__section-3__slide.home__section-3__slide--fifth
+              .home__section-3__container.home__section-3__container--align-items-end
+                .home__section-3__wrapper.home__section-3__wrapper--big
+                  h3.home__section-3__wrapper-title
+                    span Venture Capital
+                    br
+                    | &amp; Impact Investing
+                  p.home__section-3__wrapper-text.home__section-3__wrapper-text--small Through an independant company focused in venture company and impact investing, we promote entrepreneurship as a catalyst for the development of new technologies and sustainable business models.
+                .home__section-3__logo-wrapper
+                  img(src="/images/logo-kayyak.png")
+                  a(href="www.kayyakventures.com" target="_blank") www.kayyakventures.com
+                .home__section-3__arrows-container
+                  +arrows('both')
+      .section
+        .home__section-4
+          .home__section-4__container
+            .home__section-4__container-logo
+              img(src="/images/logo-ripple.png")
+            .home__section-4__group
+              .home__section-4__text-group
+                p.home__section-4__text(data-content="1") “Strong work ethic and entrepreneurship”
+                p.home__section-4__text(data-content="2") “Team work and unanimous decision-making”
+                p.home__section-4__text(data-content="3") “Environmental and human balance” 
+                p.home__section-4__text(data-content="4") “Responsibility &amp; Influence”
+                p.home__section-4__text(data-content="5") “Long Term capital”
+              ul.home__section-4__group-list
+                li.home__section-4__group-item(data-target="1")
+                  |01
+                  br
+                  span HISTORY
+                li.home__section-4__group-item(data-target="2")
+                  |02
+                  br
+                  span ROUND TABLE
+                li.home__section-4__group-item(data-target="3")
+                  |03
+                  br
+                  span JOY OF NATURE
+                li.home__section-4__group-item(data-target="4")
+                  |04
+                  br
+                  span IMPACT 
+                li.home__section-4__group-item(data-target="5")
+                  |05
+                  br
+                  span 5 GENERATIONS
+
+      .section
+        .home__section-5
+          .home__section-5__container
+            .home__section-5__wrapper
+              .home__section-5__logo
+                img(src="/images/logo.png")
+            .home__section-5__wrapper
+              .home__section-5__group
+                p.home__section-5__group-title Chile
+                p.home__section-5__group-text Av. Presidente Riesco 5561. Of. 1101
+                p.home__section-5__group-text Las Condes, Santiago de Chile
+                a.home__section-5__group-phone(href="tel:+56229644935" target="_blank") +56 22.964.4935
+                a.home__section-5__group-mail(href="mailto:contact@starsrei.com" target="_blank") contact@starsrei.com
+
+            .home__section-5__wrapper
+              .home__section-5__group
+                p.home__section-5__group-title USA
+                p.home__section-5__group-text 700 Canal Street, 1st Floor
+                p.home__section-5__group-text Stamford, CT 06902
+                a.home__section-5__group-phone(href="tel:+19142335269" target="_blank") +1 (914) 233.5269
+                a.home__section-5__group-mail(href="mailto:contact@starsrei.com" target="_blank") contact@starsrei.com
+
+

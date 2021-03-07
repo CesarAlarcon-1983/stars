@@ -18,10 +18,10 @@
     &__lang {
         display: flex;
 
-        span {
+        a {
             color: $white;
             display: block;
-
+            text-decoration: none;
             &:first-child() {
                 padding-right: 5px;
                 margin-right: 5px;
