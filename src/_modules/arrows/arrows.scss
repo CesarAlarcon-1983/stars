@@ -28,9 +28,15 @@
     img {
       position: absolute;
       top: 50%;
-      left: 50%;
+      left: 52%;
       transform: translate3d(-50%, -50%, 0);
       width: 15%;
+    }
+  }
+
+  &__left {
+    img {
+      left: 48%;
     }
   }
 
