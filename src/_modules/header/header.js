@@ -54,7 +54,6 @@ var Header = function () {
         }
 
         if(activeSlide === slides.length && scrollDirection === 'down') {
-          console.log('inside if')
           if(slideTracker === 0) {
             scrollSection(scrollDirection)
           } else {
@@ -62,39 +61,6 @@ var Header = function () {
           }
         }
       }
-      // if(getScrollDirection(e) === 'down') {
-      //     if(activeSection != 3) {
-      //         activeSection++
-      //         updateSections()
-      //     }
-
-      //     if(activeSection === 3 && activeSlide === 5) {
-      //         activeSection++
-      //         updateSections();
-      //     }
-
-      //     if(activeSection === 3 && activeSlide > 1) {
-      //         activeSlide++
-      //         updateSlides();
-      //     }
-      //  }
-
-      //  if(getScrollDirection(e) === 'up') {
-      //     if(activeSection != 3) {
-      //         activeSection--
-      //         updateSections()
-      //     }
-
-      //     if(activeSection === 3 && activeSlide === 1) {
-      //         activeSection--
-      //         updateSections();
-      //     }
-
-      //     if(activeSection === 3 && activeSlide > 1) {
-      //         activeSlide--
-      //         updateSlides();
-      //     }
-      //  }
     }
     if (isAnimating) {
       setTimeout(() => {
