@@ -21,53 +21,113 @@ var Header = function () {
   // }).addClass('next-section');
   var slideTracker = 0;
 
-  $(window).on('mousewheel', _.debounce(function (e) {
-    console.log(isAnimating)
-    if (!isAnimating) {
-      isAnimating = true;
-      const scrollDirection = getScrollDirection(e);
-
-      if (activeSection != 3) {
-        scrollSection(scrollDirection)
-      } else {
-        if (activeSlide > 1 && activeSlide < slides.length) {
-          scrollSlide(scrollDirection)
-          slideTracker = 1
-        }
-
-        if(activeSlide === 1 && scrollDirection === 'up') {
-          if(slideTracker === 0) {
-            scrollSection(scrollDirection)
-          } else {
-            slideTracker = 0;
+  if (window.matchMedia("(min-width: 1024px)").matches) {
+    $(window).on('mousewheel', _.debounce(function (e) {
+      console.log(isAnimating)
+      if (!isAnimating) {
+        isAnimating = true;
+        const scrollDirection = getScrollDirection(e);
+  
+        if (activeSection != 3) {
+          scrollSection(scrollDirection)
+        } else {
+          if (activeSlide > 1 && activeSlide < slides.length) {
+            scrollSlide(scrollDirection)
+            slideTracker = 1
           }
-        }
-
-        if(activeSlide === 1 && scrollDirection === 'down') {
-          scrollSlide(scrollDirection)
-          slideTracker = 1;
-        }
-
-        if(activeSlide === slides.length && scrollDirection === 'up') {
-          scrollSlide(scrollDirection)
-          slideTracker = 1;
-        }
-
-        if(activeSlide === slides.length && scrollDirection === 'down') {
-          if(slideTracker === 0) {
-            scrollSection(scrollDirection)
-          } else {
-            slideTracker = 0;
+  
+          if(activeSlide === 1 && scrollDirection === 'up') {
+            if(slideTracker === 0) {
+              scrollSection(scrollDirection)
+            } else {
+              slideTracker = 0;
+            }
+          }
+  
+          if(activeSlide === 1 && scrollDirection === 'down') {
+            scrollSlide(scrollDirection)
+            slideTracker = 1;
+          }
+  
+          if(activeSlide === slides.length && scrollDirection === 'up') {
+            scrollSlide(scrollDirection)
+            slideTracker = 1;
+          }
+  
+          if(activeSlide === slides.length && scrollDirection === 'down') {
+            if(slideTracker === 0) {
+              scrollSection(scrollDirection)
+            } else {
+              slideTracker = 0;
+            }
           }
         }
       }
-    }
-    if (isAnimating) {
-      setTimeout(() => {
-        isAnimating = false;
-      }, 1050);
-    }
-  }, 1000, { 'leading': true }))
+  
+      if (isAnimating) {
+        setTimeout(() => {
+          isAnimating = false;
+        }, 1050);
+      }
+    }, 1000, { 'leading': true }))
+  } else {
+    $(window).on('touchstart', _.debounce(function (e) {
+      var initialTouch = e.originalEvent.changedTouches[0].screenY
+      console.log(initialTouch)
+      
+      $(window).on('touchend', function (ev) {
+        var finalTouch = ev.originalEvent.changedTouches[0].screenY
+        console.log(finalTouch);
+  
+        if (!isAnimating) {
+          isAnimating = true;
+          const scrollDirection = initialTouch - finalTouch > 30 ? 'down' : 'up';
+  
+          if (activeSection != 3) {
+            scrollSection(scrollDirection)
+          } else {
+            if ((activeSlide > 1 && activeSlide < slides.length) || (activeSlide === 1 && scrollDirection === 'down') || (activeSlide === slides.length && scrollDirection === 'up')) {
+              scrollSlide(scrollDirection)
+              // slideTracker = 1
+            } else {
+              scrollSection(scrollDirection)
+            }
+  
+            // if(activeSlide === 1 && scrollDirection === 'up') {
+            //   if(slideTracker === 0) {
+            //     scrollSection(scrollDirection)
+            //   } else {
+            //     slideTracker = 0;
+            //   }
+            // }
+  
+            // if(activeSlide === 1 && scrollDirection === 'down') {
+            //   scrollSlide(scrollDirection)
+            //   slideTracker = 1;
+            // }
+  
+            // if(activeSlide === slides.length && scrollDirection === 'up') {
+            //   scrollSlide(scrollDirection)
+            //   slideTracker = 1;
+            // }
+  
+            // if(activeSlide === slides.length && scrollDirection === 'down') {
+            //   if(slideTracker === 0) {
+            //     scrollSection(scrollDirection)
+            //   } else {
+            //     slideTracker = 0;
+            //   }
+            // }
+          }
+        }
+        if (isAnimating) {
+          setTimeout(() => {
+            isAnimating = false;
+          }, 1050);
+        }      
+      })
+    }, 1000, { 'leading': true }))
+  }
 
   function scrollSection(direction) {
     if (direction === 'down') {
@@ -91,13 +151,14 @@ var Header = function () {
     updateSlides();
   }
 
-  function updateActiveSection(algo) {
-    activeSection = algo === 'add' && activeSection < sections.length ? activeSection + 1 : activeSection - 1;
+  function updateActiveSection(action) {
+    activeSection = action === 'add' && activeSection < sections.length ? activeSection + 1 : activeSection - 1;
   }
 
-  function updateActiveSlide(algo) {
-    activeSlide = algo === 'add' && activeSlide < slides.length ? activeSlide + 1 : activeSlide - 1;
+  function updateActiveSlide(action) {
+    activeSlide = action === 'add' && activeSlide < slides.length ? activeSlide + 1 : activeSlide - 1;
   }
+
   function updateSections() {
     sections.each(function () {
       if ($(this).data('section') < activeSection) {
@@ -135,6 +196,7 @@ var Header = function () {
       }
     });
   }
+
   if (window.location.pathname.length > 1) {
     $(languages[1]).addClass('-active');
   } else {
@@ -159,7 +221,7 @@ var Header = function () {
     scrollSlide('up')
   })
 
-  arrowRight.on('click', function (e) {
+  arrowRight.on('click', function () {
     scrollSlide('down')
   })
 
@@ -186,38 +248,38 @@ var Header = function () {
     contentWrapper.height(targettedContent.height());
   })
 
-  $('a[href*="#"]')
-    // Remove links that don't actually link to anything
-    .not('[href="#buscar"]')
-    .not('[href="#"]')
-    .not('[href="#0"]')
-    .not('[href="#registro"]')
-    .not('[href="#login"]')
-    .on('click', function (event) {
-      // On-page links
-      if (
-        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-        &&
-        location.hostname == this.hostname
-      ) {
-        // Figure out element to scroll to
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-        // Does a scroll target exist?
-        if (target.length) {
-          // Only prevent default if animation is actually gonna happen
-          event.preventDefault();
-          $('html, body').animate({
-            scrollTop: target.offset().top + - 70
-          }, 1000, function () {
-            // Callback after animation
-            // Must change focus!
-            var $target = $(target);
-            $target.focus();
-          });
-        }
-      }
-    });
+  // $('a[href*="#"]')
+  //   // Remove links that don't actually link to anything
+  //   .not('[href="#buscar"]')
+  //   .not('[href="#"]')
+  //   .not('[href="#0"]')
+  //   .not('[href="#registro"]')
+  //   .not('[href="#login"]')
+  //   .on('click', function (event) {
+  //     // On-page links
+  //     if (
+  //       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+  //       &&
+  //       location.hostname == this.hostname
+  //     ) {
+  //       // Figure out element to scroll to
+  //       var target = $(this.hash);
+  //       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+  //       // Does a scroll target exist?
+  //       if (target.length) {
+  //         // Only prevent default if animation is actually gonna happen
+  //         event.preventDefault();
+  //         $('html, body').animate({
+  //           scrollTop: target.offset().top + - 70
+  //         }, 1000, function () {
+  //           // Callback after animation
+  //           // Must change focus!
+  //           var $target = $(target);
+  //           $target.focus();
+  //         });
+  //       }
+  //     }
+  //   });
 };
 
 module.exports = Header;
